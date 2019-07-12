@@ -1,0 +1,47 @@
+
+********** HOW TO FILL OUT THE PROPERTIES **********
+
+------------------------------------------------------------------------------------------
+
+"Includes" = This is where the External library files should be listed, for example like this:
+#include <Firmata.h>
+
+------------------------------------------------------------------------------------------
+
+The "On Data" property under each Custom Code input pin = This is the code to run each time the input gets updated with a value.
+
+------------------------------------------------------------------------------------------
+
+"Members" = This is where you declare your member variables and what type they are. They are used later in "On Execute" or "On Update Hardware. They look something like this:
+float AInput1;
+
+------------------------------------------------------------------------------------------
+
+"On Init" = Is the first part in the "void setup" (in Arduino IDE) and runs right before the "On Start" section.
+Init is usually used to initialize HW devices etc.
+
+------------------------------------------------------------------------------------------
+
+"On Start" = Is the second part in the "void setup" (in Arduino IDE) and runs right after the "On Init" section.
+Most of your "setup code" is going to be in "On Start".
+
+------------------------------------------------------------------------------------------
+
+"On Execute" = This section will be called either from Loop or from clock if a clock is attached. If the component is clocked "On Execute" is not called in the loop.
+It is called right before the "On Hardware" section and is usually the primary place to put your code. If you want it to run this part only once on per clock signal, then you finish the code with:
+return;
+
+------------------------------------------------------------------------------------------
+
+"On update Hardware" = This runs straight after the "On Execute" section. Both are called from the "void loop". The "On Hardware" is used mostly to update hardware devices after all other executions have been completed for a particular loop. Usually you would do calculations etc. in the "On Execute" and if you deal with devices, you might sometimes want to delay the output until everything else has been completed. "On Update Hardware" is useful only in some more advanced HW control, but it is a useful function.
+
+------------------------------------------------------------------------------------------
+
+How to send value to a output from the Custom Code component:
+
+Analog1.Send("insert any type of compatible value, or calculation");
+The "Analog1" is the name of an output on the right side of the Custom Code component. For example "Outputs.Analog1".
+
+------------------------------------------------------------------------------------------
+
+
