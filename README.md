@@ -14,4 +14,4 @@ What Git-software you use is up to you. There are plenty of tutorials "out there
 Down below you can see a step by step instruction on how to fork our repo and make a pull request.
 Click the image to see it better and scroll if it doesn't fill your screen.
 
-<img src=".How to fork the repo and contribute.png" alt="How to fork the repo and contribute">
+<img src="How_to_fork_the_repo_and_contribute.png" alt="How to fork the repo and contribute">
