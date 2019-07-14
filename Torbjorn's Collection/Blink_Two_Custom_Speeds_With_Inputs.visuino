@@ -1,0 +1,292 @@
+{
+  "Version": "2",
+  "Product": "Visuino Pro - Visual Arduino Programming",
+  "Units": [
+    {
+      "Type": "Diagram",
+      "Name": "__OpenWireRootUnit__",
+      "*": [
+        {
+          "X": 992,
+          "Name": "Arduino",
+          "Instance": {
+            "AnalogInput": {
+              "*": [
+                {
+                  "+": "TArduinoESP8266AnalogInputChannel"
+                }
+              ]
+            },
+            "Serial": {
+              "*": [
+                {
+                  "+": "TArduinoESP8266HardwareSerial"
+                },
+                {
+                  "+": "TArduinoESP8266HardwareSerial1"
+                }
+              ]
+            },
+            "+": "TArduinoBoard",
+            "AnalogInputReference": "Default",
+            "Modules": {
+              "*": [
+                {
+                  "+": "TArduinoESP8266WiFiModule"
+                },
+                {
+                  "+": "TArduinoEEPROMModule"
+                },
+                {
+                  "+": "TArduinoPWMConfigModule"
+                },
+                {
+                  "+": "TArduinoESP8266ProcessorModule"
+                }
+              ]
+            },
+            "I2CChannels": {
+              "*": [
+                {
+                  "+": "TArduinoESP8266_WeMos_D1_I2C"
+                }
+              ]
+            },
+            "Digital": {
+              "*": [
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMSerial0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMSerial0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMInterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMI2C0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMI2C0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMInterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMInterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMSPI0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMSPI0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMSerial2SPI0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMSerial2InterruptChannel"
+                }
+              ]
+            },
+            "SPIChannels": {
+              "*": [
+                {
+                  "+": "TArduinoSPI"
+                }
+              ]
+            },
+            "BoardType": "WeMos D1 \/ R2"
+          },
+          "Type": "Component",
+          "Y": 256
+        },
+        {
+          "X": 592,
+          "Name": "Blink_Two_Sequences__LED_BUILTIN",
+          "Instance": {
+            "Members": "int i;\r\nint firstBlinkNumberOfTimes;\r\nint millisecondsFirstLightsOn;\r\nint millisecondsFirstLightsOff;\r\nint secondBlinkNumberOfTimes;\r\nint millisecondsSecondLightsOn;\r\nint millisecondsSecondLightsOff;",
+            "Inputs": {
+              "*": [
+                {
+                  "Name": "First Blink Number Of Times",
+                  "InputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.FirstBlinkNumberOfTimes.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoCustomCodeInputIntegerElement",
+                  "OnData": "firstBlinkNumberOfTimes=AValue;"
+                },
+                {
+                  "Name": "First Lights On",
+                  "InputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.millisecondsFirstLightsOn.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoCustomCodeInputIntegerElement",
+                  "OnData": "millisecondsFirstLightsOn=AValue;"
+                },
+                {
+                  "Name": "First Lights Off",
+                  "InputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.millisecondsFirstLightsOff.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoCustomCodeInputIntegerElement",
+                  "OnData": "millisecondsFirstLightsOff=AValue;"
+                },
+                {
+                  "Name": "Second Blink Number Of Times",
+                  "InputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.SecondBlinkNumberOfTimes.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoCustomCodeInputIntegerElement",
+                  "OnData": "secondBlinkNumberOfTimes=AValue;"
+                },
+                {
+                  "Name": "First Lights On",
+                  "InputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.millisecondsSecondLightsOn.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoCustomCodeInputIntegerElement",
+                  "OnData": "millisecondsSecondLightsOn=AValue;"
+                },
+                {
+                  "Name": "First Lights Off",
+                  "InputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.millisecondsSecondLightsOff.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoCustomCodeInputIntegerElement",
+                  "OnData": "millisecondsSecondLightsOff=AValue;"
+                }
+              ]
+            },
+            "+": "TArduinoCustomCode",
+            "OnExecute": "  for (int i = 0; i <= firstBlinkNumberOfTimes; i++) {\r\n  digitalWrite(LED_BUILTIN, HIGH);   \/\/ turn the LED on (HIGH is the voltage level)\r\n  delay(millisecondsFirstLightsOn);                       \/\/ wait for a second\r\n  digitalWrite(LED_BUILTIN, LOW);    \/\/ turn the LED off by making the voltage LOW\r\n  delay(millisecondsFirstLightsOff);\r\n  }\r\n\r\n  for (int i = 0; i <= secondBlinkNumberOfTimes; i++) {\r\n  digitalWrite(LED_BUILTIN, HIGH);   \/\/ turn the LED on (HIGH is the voltage level)\r\n  delay(millisecondsSecondLightsOn);                       \/\/ wait for a second\r\n  digitalWrite(LED_BUILTIN, LOW);    \/\/ turn the LED off by making the voltage LOW\r\n  delay(millisecondsSecondLightsOff);\r\n  }\r\n\r\n\/\/return; \/\/Uncomment this line if you are using a clock to trigger this Custom Code component.",
+            "OnStart": "  pinMode(LED_BUILTIN, OUTPUT);"
+          },
+          "Type": "Component",
+          "Y": 448
+        },
+        {
+          "X": 256,
+          "Name": "FirstBlinkNumberOfTimes",
+          "Instance": {
+            "Value": 5,
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Blink_Two_Sequences__LED_BUILTIN.Inputs.First Blink Number Of Times.InputPin",
+                  "ID": "__OpenWireRootUnit__.Blink_Two_Sequences__LED_BUILTIN.Inputs._Item0.InputPin"
+                }
+              ]
+            },
+            "+": "TArduinoIntegerValue"
+          },
+          "Type": "Component",
+          "Y": 448
+        },
+        {
+          "X": 256,
+          "Name": "millisecondsFirstLightsOn",
+          "Instance": {
+            "Value": 1000,
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Blink_Two_Sequences__LED_BUILTIN.Inputs.First Lights On.InputPin",
+                  "ID": "__OpenWireRootUnit__.Blink_Two_Sequences__LED_BUILTIN.Inputs._Item1.InputPin"
+                }
+              ]
+            },
+            "+": "TArduinoIntegerValue"
+          },
+          "Type": "Component",
+          "Y": 496
+        },
+        {
+          "X": 256,
+          "Name": "millisecondsFirstLightsOff",
+          "Instance": {
+            "Value": 1000,
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Blink_Two_Sequences__LED_BUILTIN.Inputs.First Lights Off.InputPin",
+                  "ID": "__OpenWireRootUnit__.Blink_Two_Sequences__LED_BUILTIN.Inputs._Item2.InputPin"
+                }
+              ]
+            },
+            "+": "TArduinoIntegerValue"
+          },
+          "Type": "Component",
+          "Y": 544
+        },
+        {
+          "X": 256,
+          "Name": "SecondBlinkNumberOfTimes",
+          "Instance": {
+            "Value": 10,
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Blink_Two_Sequences__LED_BUILTIN.Inputs.Second Blink Number Of Times.InputPin",
+                  "ID": "__OpenWireRootUnit__.Blink_Two_Sequences__LED_BUILTIN.Inputs._Item3.InputPin"
+                }
+              ]
+            },
+            "+": "TArduinoIntegerValue"
+          },
+          "Type": "Component",
+          "Y": 592
+        },
+        {
+          "X": 256,
+          "Name": "millisecondsSecondLightsOn",
+          "Instance": {
+            "Value": 500,
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Blink_Two_Sequences__LED_BUILTIN.Inputs.First Lights On.InputPin",
+                  "ID": "__OpenWireRootUnit__.Blink_Two_Sequences__LED_BUILTIN.Inputs._Item4.InputPin"
+                }
+              ]
+            },
+            "+": "TArduinoIntegerValue"
+          },
+          "Type": "Component",
+          "Y": 640
+        },
+        {
+          "X": 256,
+          "Name": "millisecondsSecondLightsOff",
+          "Instance": {
+            "Value": 500,
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Blink_Two_Sequences__LED_BUILTIN.Inputs.First Lights Off.InputPin",
+                  "ID": "__OpenWireRootUnit__.Blink_Two_Sequences__LED_BUILTIN.Inputs._Item5.InputPin"
+                }
+              ]
+            },
+            "+": "TArduinoIntegerValue"
+          },
+          "Type": "Component",
+          "Y": 688
+        }
+      ]
+    }
+  ],
+  "Content": "OpenWire Diagram"
+}

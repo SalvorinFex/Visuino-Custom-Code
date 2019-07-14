@@ -1,0 +1,204 @@
+{
+  "Version": "2",
+  "Product": "Visuino Pro - Visual Arduino Programming",
+  "Units": [
+    {
+      "Name": "__OpenWireRootUnit__",
+      "*": [
+        {
+          "X": 832,
+          "Name": "Arduino",
+          "Instance": {
+            "AnalogInput": {
+              "*": [
+                {
+                  "+": "TArduinoESP8266AnalogInputChannel"
+                }
+              ]
+            },
+            "Serial": {
+              "*": [
+                {
+                  "+": "TArduinoESP8266HardwareSerial"
+                },
+                {
+                  "+": "TArduinoESP8266HardwareSerial1"
+                }
+              ]
+            },
+            "+": "TArduinoBoard",
+            "AnalogInputReference": "Default",
+            "Modules": {
+              "*": [
+                {
+                  "AccessPoint": {
+                    "Config": {
+                      "IP": {
+                        "AsString": "0.0.0.0"
+                      },
+                      "Gateway": {
+                        "AsString": "0.0.0.0"
+                      },
+                      "Subnet": {
+                        "AsString": "255.255.255.0"
+                      }
+                    }
+                  },
+                  "+": "TArduinoESP8266WiFiModule"
+                },
+                {
+                  "+": "TArduinoEEPROMModule"
+                },
+                {
+                  "+": "TArduinoPWMConfigModule"
+                },
+                {
+                  "+": "TArduinoESP8266ProcessorModule"
+                }
+              ]
+            },
+            "I2CChannels": {
+              "*": [
+                {
+                  "+": "TArduinoESP8266_WeMos_D1_I2C"
+                }
+              ]
+            },
+            "Digital": {
+              "*": [
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMSerial0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMSerial0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMInterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMI2C0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMI2C0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMInterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMInterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMSPI0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMSPI0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMSerial2SPI0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMSerial2InterruptChannel"
+                }
+              ]
+            },
+            "SPIChannels": {
+              "*": [
+                {
+                  "+": "TArduinoSPI"
+                }
+              ]
+            },
+            "BoardType": "WeMos D1 \/ R2"
+          },
+          "Type": "Component",
+          "Y": 256
+        },
+        {
+          "X": 432,
+          "Name": "CustomCode1",
+          "Instance": {
+            "ClockInputPin": {
+              "SourcePins": [
+                {
+                  "ID": "__OpenWireRootUnit__.ClockGenerator1.OutputPin"
+                }
+              ]
+            },
+            "+": "TArduinoCustomCode",
+            "OnExecute": "  digitalWrite(LED_BUILTIN, HIGH);   \/\/ turn the LED on (HIGH is the voltage level)\r\n  delay(100);                       \/\/ wait for a second\r\n  digitalWrite(LED_BUILTIN, LOW);    \/\/ turn the LED off by making the voltage LOW\r\n  delay(100);\r\n  digitalWrite(LED_BUILTIN, HIGH);   \/\/ turn the LED on (HIGH is the voltage level)\r\n  delay(100);                       \/\/ wait for a second\r\n  digitalWrite(LED_BUILTIN, LOW);    \/\/ turn the LED off by making the voltage LOW\r\n  delay(100);\r\n  digitalWrite(LED_BUILTIN, HIGH);   \/\/ turn the LED on (HIGH is the voltage level)\r\n  delay(100);                       \/\/ wait for a second\r\n  digitalWrite(LED_BUILTIN, LOW);    \/\/ turn the LED off by making the voltage LOW\r\n  delay(100);\r\n  digitalWrite(LED_BUILTIN, HIGH);   \/\/ turn the LED on (HIGH is the voltage level)\r\n  delay(100);                       \/\/ wait for a second\r\n  digitalWrite(LED_BUILTIN, LOW);    \/\/ turn the LED off by making the voltage LOW\r\n  delay(100);\r\n  digitalWrite(LED_BUILTIN, HIGH);   \/\/ turn the LED on (HIGH is the voltage level)\r\n  delay(100);                       \/\/ wait for a second\r\n  digitalWrite(LED_BUILTIN, LOW);    \/\/ turn the LED off by making the voltage LOW\r\n  delay(100);\r\n  digitalWrite(LED_BUILTIN, HIGH);   \/\/ turn the LED on (HIGH is the voltage level)\r\n  delay(100);                       \/\/ wait for a second\r\n  digitalWrite(LED_BUILTIN, LOW);    \/\/ turn the LED off by making the voltage LOW\r\n  delay(100);\r\n  digitalWrite(LED_BUILTIN, HIGH);   \/\/ turn the LED on (HIGH is the voltage level)\r\n  delay(100);                       \/\/ wait for a second\r\n  digitalWrite(LED_BUILTIN, LOW);    \/\/ turn the LED off by making the voltage LOW\r\n  delay(100);\r\n",
+            "OnStart": "  pinMode(LED_BUILTIN, OUTPUT);"
+          },
+          "Type": "Component",
+          "Y": 448
+        },
+        {
+          "X": 256,
+          "Name": "ClockGenerator1",
+          "Instance": {
+            "Frequency": 0.100000001490116,
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "ID": "__OpenWireRootUnit__.CustomCode1.ClockInputPin"
+                },
+                {
+                  "ID": "__OpenWireRootUnit__.Delay1.StartInputPin"
+                }
+              ]
+            },
+            "+": "TArduinoClockGenerator"
+          },
+          "Type": "Component",
+          "Y": 448
+        },
+        {
+          "X": 560,
+          "Name": "CustomCode2",
+          "Instance": {
+            "ClockInputPin": {
+              "SourcePins": [
+                {
+                  "ID": "__OpenWireRootUnit__.Delay1.OutputPin"
+                }
+              ]
+            },
+            "+": "TArduinoCustomCode",
+            "OnExecute": "  digitalWrite(LED_BUILTIN, HIGH);   \/\/ turn the LED on (HIGH is the voltage level)\r\n  delay(1000);                       \/\/ wait for a second\r\n  digitalWrite(LED_BUILTIN, LOW);    \/\/ turn the LED off by making the voltage LOW\r\n  delay(1000);\r\n    digitalWrite(LED_BUILTIN, HIGH);   \/\/ turn the LED on (HIGH is the voltage level)\r\n  delay(1000);                       \/\/ wait for a second\r\n  digitalWrite(LED_BUILTIN, LOW);    \/\/ turn the LED off by making the voltage LOW\r\n  delay(1000);\r\n  ",
+            "OnStart": "  pinMode(LED_BUILTIN, OUTPUT);"
+          },
+          "Type": "Component",
+          "Y": 528
+        },
+        {
+          "X": 416,
+          "Name": "Delay1",
+          "Instance": {
+            "StartInputPin": {
+              "SourcePins": [
+                {
+                  "ID": "__OpenWireRootUnit__.ClockGenerator1.OutputPin"
+                }
+              ]
+            },
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "ID": "__OpenWireRootUnit__.CustomCode2.ClockInputPin"
+                }
+              ]
+            },
+            "+": "TArduinoDelay",
+            "Interval": 3000000
+          },
+          "Type": "Component",
+          "Y": 528
+        }
+      ],
+      "Type": "Diagram",
+      "Selection": [
+        "Delay1"
+      ]
+    }
+  ],
+  "Content": "OpenWire Diagram"
+}
