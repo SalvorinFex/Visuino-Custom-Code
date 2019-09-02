@@ -1,0 +1,211 @@
+{
+  "Version": "2",
+  "Product": "Visuino Pro - Visual Arduino Programming",
+  "Units": [
+    {
+      "Type": "Diagram",
+      "Name": "__OpenWireRootUnit__",
+      "*": [
+        {
+          "X": 896,
+          "Name": "Arduino",
+          "Instance": {
+            "Serial": {
+              "*": [
+                {
+                  "InputPin": {
+                    "SourcePins": [
+                      {
+                        "Name": "__OpenWireRootUnit__.CustomCode_Unsigned_to_HEX.Outputs.Text1.OutputPin",
+                        "ID": "__OpenWireRootUnit__.CustomCode_Unsigned_to_HEX.Outputs._Item0.OutputPin"
+                      }
+                    ]
+                  },
+                  "+": "TArduinoHardwareSerial"
+                }
+              ]
+            },
+            "+": "TArduinoBoard",
+            "AnalogInputReference": "Default",
+            "Modules": {
+              "*": [
+                {
+                  "+": "TArduinoEEPROMModule"
+                },
+                {
+                  "+": "TArduinoProcessorModule"
+                },
+                {
+                  "+": "TArduinoWatchdogTimerModule"
+                }
+              ]
+            },
+            "I2CChannels": {
+              "*": [
+                {
+                  "+": "TArduinoI2C"
+                }
+              ]
+            },
+            "Digital": {
+              "*": [
+                {
+                  "+": "TArduinoAdditionalDigitalSerial0Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSerial0Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalInterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMInterruptChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMSPI0Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSPI0Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSPI0Channel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalI2C0Channel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalI2C0Channel"
+                }
+              ]
+            },
+            "SPIChannels": {
+              "*": [
+                {
+                  "+": "TArduinoSPI"
+                }
+              ]
+            },
+            "BoardType": "Arduino Uno"
+          },
+          "Type": "Component",
+          "Y": 256
+        },
+        {
+          "X": 256,
+          "Name": "ClockGenerator1",
+          "Instance": {
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "ID": "__OpenWireRootUnit__.UnsignedValue1.ClockInputPin"
+                }
+              ]
+            },
+            "+": "TArduinoClockGenerator"
+          },
+          "Type": "Component",
+          "Y": 272
+        },
+        {
+          "X": 432,
+          "Name": "UnsignedValue1",
+          "Instance": {
+            "ClockInputPin": {
+              "SourcePins": [
+                {
+                  "ID": "__OpenWireRootUnit__.ClockGenerator1.OutputPin"
+                }
+              ]
+            },
+            "Value": 70000,
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.CustomCode_Unsigned_to_HEX.Inputs.Unsigned1.InputPin",
+                  "ID": "__OpenWireRootUnit__.CustomCode_Unsigned_to_HEX.Inputs._Item0.InputPin"
+                }
+              ]
+            },
+            "+": "TArduinoUnsignedValue"
+          },
+          "Type": "Component",
+          "Y": 272
+        },
+        {
+          "X": 624,
+          "Name": "CustomCode_Unsigned_to_HEX",
+          "Instance": {
+            "Members": "char hexvalue[];\r\n",
+            "Inputs": {
+              "*": [
+                {
+                  "Name": "Unsigned1",
+                  "InputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.UnsignedValue1.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoCustomCodeInputUnsignedElement",
+                  "OnData": "String hexvalue = String(AValue, HEX);\r\nText1.Send(hexvalue);"
+                }
+              ]
+            },
+            "Outputs": {
+              "*": [
+                {
+                  "Name": "Text1",
+                  "OutputPin": {
+                    "SinkPins": [
+                      {
+                        "Name": "__OpenWireRootUnit__.Arduino.Serial[0].InputPin",
+                        "ID": "__OpenWireRootUnit__.Arduino.Serial._Item0.InputPin"
+                      }
+                    ]
+                  },
+                  "+": "TArduinoCustomCodeOutputTextElement"
+                }
+              ]
+            },
+            "+": "TArduinoCustomCode"
+          },
+          "Type": "Component",
+          "Y": 256
+        }
+      ]
+    }
+  ],
+  "Content": "OpenWire Diagram"
+}
