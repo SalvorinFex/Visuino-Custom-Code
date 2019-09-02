@@ -1,0 +1,498 @@
+{
+  "Version": "2",
+  "Product": "Visuino Pro - Visual Arduino Programming",
+  "Units": [
+    {
+      "Name": "__OpenWireRootUnit__",
+      "*": [
+        {
+          "X": 1248,
+          "Name": "Arduino",
+          "Instance": {
+            "Serial": {
+              "*": [
+                {
+                  "InputPin": {
+                    "SourcePins": [
+                      {
+                        "ID": "__OpenWireRootUnit__.Packet1.OutputPin"
+                      }
+                    ]
+                  },
+                  "+": "TArduinoHardwareSerial"
+                }
+              ]
+            },
+            "+": "TArduinoBoard",
+            "AnalogInputReference": "Default",
+            "Modules": {
+              "*": [
+                {
+                  "+": "TArduinoEEPROMModule"
+                },
+                {
+                  "+": "TArduinoProcessorModule"
+                },
+                {
+                  "+": "TArduinoWatchdogTimerModule"
+                }
+              ]
+            },
+            "I2CChannels": {
+              "*": [
+                {
+                  "+": "TArduinoI2C"
+                }
+              ]
+            },
+            "Digital": {
+              "*": [
+                {
+                  "+": "TArduinoAdditionalDigitalSerial0Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSerial0Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalInterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMInterruptChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMSPI0Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSPI0Channel"
+                },
+                {
+                  "+": "TArduinoAdditionalDigitalSPI0Channel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalChannel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalI2C0Channel"
+                },
+                {
+                  "+": "TArduinoCombinedAnalogDigitalI2C0Channel"
+                }
+              ]
+            },
+            "SPIChannels": {
+              "*": [
+                {
+                  "+": "TArduinoSPI"
+                }
+              ]
+            },
+            "BoardType": "Arduino Uno"
+          },
+          "Type": "Component",
+          "Y": 272
+        },
+        {
+          "X": 256,
+          "Name": "ClockGenerator1",
+          "Instance": {
+            "Frequency": 50,
+            "+": "TArduinoClockGenerator"
+          },
+          "Type": "Component",
+          "Y": 256
+        },
+        {
+          "X": 464,
+          "Name": "CustomCode1",
+          "Instance": {
+            "OnInit": "{\r\n \r\n  \/\/ Please select the gain for the ADS to operate at, remember in Visuino to modify the math to compensate \r\n\r\n\r\n    ads.setGain(GAIN_TWOTHIRDS);  \/\/ 2\/3x gain +\/- 6.144V  1 bit = 3mV      0.1875mV\r\n   \/\/ads.setGain(GAIN_ONE);        \/\/ 1x gain   +\/- 4.096V  1 bit = 2mV      0.125mV\r\n  \/\/ads.setGain(GAIN_TWO);        \/\/ 2x gain   +\/- 2.048V  1 bit = 1mV      0.0625mV\r\n  \/\/ ads.setGain(GAIN_FOUR);       \/\/ 4x gain   +\/- 1.024V  1 bit = 0.5mV    0.03125mV\r\n  \/\/ ads.setGain(GAIN_EIGHT);      \/\/ 8x gain   +\/- 0.512V  1 bit = 0.25mV   0.015625mV\r\n  \/\/ ads.setGain(GAIN_SIXTEEN);    \/\/ 16x gain  +\/- 0.256V  1 bit = 0.125mV  0.0078125mV\r\n\r\n  ads.begin(); \/\/Start the ADS1X5 ADC Chip\r\n\r\n}\r\n",
+            "Outputs": {
+              "*": [
+                {
+                  "Name": "Integer1",
+                  "OutputPin": {
+                    "SinkPins": [
+                      {
+                        "ID": "__OpenWireRootUnit__.MultiplyByValue1.InputPin"
+                      }
+                    ]
+                  },
+                  "+": "TArduinoCustomCodeOutputIntegerElement"
+                },
+                {
+                  "Name": "Integer2",
+                  "OutputPin": {
+                    "SinkPins": [
+                      {
+                        "ID": "__OpenWireRootUnit__.MultiplyByValue2.InputPin"
+                      }
+                    ]
+                  },
+                  "+": "TArduinoCustomCodeOutputIntegerElement"
+                },
+                {
+                  "Name": "Integer3",
+                  "OutputPin": {
+                    "SinkPins": [
+                      {
+                        "ID": "__OpenWireRootUnit__.MultiplyByValue3.InputPin"
+                      }
+                    ]
+                  },
+                  "+": "TArduinoCustomCodeOutputIntegerElement"
+                },
+                {
+                  "Name": "Integer4",
+                  "OutputPin": {
+                    "SinkPins": [
+                      {
+                        "ID": "__OpenWireRootUnit__.MultiplyByValue4.InputPin"
+                      }
+                    ]
+                  },
+                  "+": "TArduinoCustomCodeOutputIntegerElement"
+                }
+              ]
+            },
+            "+": "TArduinoCustomCode",
+            "OnExecute": "{\r\n  \r\n\r\n\r\nint16_t adc0; \/\/ Read the ADC channel 1 (adc0) with a 16bit integer output.\r\n\r\n  adc0 = ads.readADC_SingleEnded(0); \/\/Command to tell the ADS to work as Single Ended\r\n  \r\n  Integer1.Send(adc0); \/\/The command of \"Integer1.Send\"  to send the data of the adc0 to the first output \"Integer1\" in Visuino Custom code window\r\n\r\n  \r\n\r\n}\r\n{\r\n  \r\n\r\n\r\nint16_t adc1; \/\/ Read the ADC channel 1 (adc0) with a 16bit integer output.\r\n\r\n  adc1 = ads.readADC_SingleEnded(1); \/\/Command to tell the ADS to work as Single Ended\r\n  \r\n  Integer2.Send(adc1); \/\/The command of \"Integer1.Send\"  to send the data of the adc0 to the first output \"Integer1\" in Visuino Custom code window\r\n\r\n  \r\n\r\n}\r\n{\r\n  \r\n\r\n\r\nint16_t adc2; \/\/ Read the ADC channel 1 (adc0) with a 16bit integer output.\r\n\r\n  adc2 = ads.readADC_SingleEnded(2); \/\/Command to tell the ADS to work as Single Ended\r\n  \r\n  Integer3.Send(adc2); \/\/The command of \"Integer1.Send\"  to send the data of the adc0 to the first output \"Integer1\" in Visuino Custom code window\r\n\r\n  \r\n\r\n}\r\n{\r\n  \r\n\r\n\r\nint16_t adc3; \/\/ Read the ADC channel 1 (adc0) with a 16bit integer output.\r\n\r\n  adc3 = ads.readADC_SingleEnded(3); \/\/Command to tell the ADS to work as Single Ended\r\n  \r\n  Integer4.Send(adc3); \/\/The command of \"Integer1.Send\"  to send the data of the adc0 to the first output \"Integer1\" in Visuino Custom code window\r\n\r\n  \r\n\r\n}",
+            "Includes": "#include <Wire.h>\r\n#include <Adafruit_ADS1015.h>\r\n\r\nAdafruit_ADS1115 ads(0x48);\r\n\/\/float Voltage = 0.0;"
+          },
+          "Type": "Component",
+          "Y": 256
+        },
+        {
+          "X": 672,
+          "Name": "MultiplyByValue1",
+          "Instance": {
+            "Value": 62,
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "ID": "__OpenWireRootUnit__.DivideByValue1.InputPin"
+                }
+              ]
+            },
+            "+": "TArduinoIntegerMultiplyByValue",
+            "InputPin": {
+              "SourcePin": {
+                "Name": "__OpenWireRootUnit__.CustomCode1.Outputs.Integer1.OutputPin",
+                "ID": "__OpenWireRootUnit__.CustomCode1.Outputs._Item0.OutputPin"
+              }
+            }
+          },
+          "Type": "Component",
+          "Y": 272
+        },
+        {
+          "X": 816,
+          "Name": "DivideByValue1",
+          "Instance": {
+            "Value": 1000,
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Packet1.Elements.Integer(Binary)1.InputPin",
+                  "ID": "__OpenWireRootUnit__.Packet1.Elements._Item0.InputPin"
+                }
+              ]
+            },
+            "+": "TArduinoIntegerDivideByValue",
+            "InputPin": {
+              "SourcePin": {
+                "ID": "__OpenWireRootUnit__.MultiplyByValue1.OutputPin"
+              }
+            }
+          },
+          "Type": "Component",
+          "Y": 272
+        },
+        {
+          "X": 1008,
+          "Name": "Packet1",
+          "Instance": {
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.Serial[0].InputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.Serial._Item0.InputPin"
+                }
+              ]
+            },
+            "+": "TArduinoPacket",
+            "HeadMarker": {
+              "Bytes": {
+                "_Data": ""
+              }
+            },
+            "Elements": {
+              "*": [
+                {
+                  "Visualization": {
+                    "Instrument": {
+                      "+": "TArduinoPacketElementIntegerAngularGauge"
+                    }
+                  },
+                  "InputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.DivideByValue1.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoIntegerBinaryPacketElement",
+                  "Name": "Integer(Binary)1"
+                },
+                {
+                  "Visualization": {
+                    "Instrument": {
+                      "+": "TArduinoPacketElementIntegerAngularGauge"
+                    }
+                  },
+                  "InputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.DivideByValue2.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoIntegerBinaryPacketElement",
+                  "Name": "Integer(Binary)2"
+                },
+                {
+                  "Visualization": {
+                    "Instrument": {
+                      "+": "TArduinoPacketElementIntegerAngularGauge"
+                    }
+                  },
+                  "InputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.DivideByValue3.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoIntegerBinaryPacketElement",
+                  "Name": "Integer(Binary)3"
+                },
+                {
+                  "Visualization": {
+                    "Instrument": {
+                      "+": "TArduinoPacketElementIntegerAngularGauge"
+                    }
+                  },
+                  "Name": "Integer(Binary)4",
+                  "+": "TArduinoIntegerBinaryPacketElement"
+                },
+                {
+                  "Visualization": {
+                    "Instrument": {
+                      "+": "TArduinoPacketElementFloatAngularGauge"
+                    }
+                  },
+                  "InputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.Kalman1.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoAnalogBinaryPacketElement",
+                  "Name": "Analog(Binary)1"
+                }
+              ]
+            }
+          },
+          "Type": "Component",
+          "Y": 288
+        },
+        {
+          "X": 672,
+          "Name": "MultiplyByValue2",
+          "Instance": {
+            "Value": 62,
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "ID": "__OpenWireRootUnit__.DivideByValue2.InputPin"
+                }
+              ]
+            },
+            "+": "TArduinoIntegerMultiplyByValue",
+            "InputPin": {
+              "SourcePin": {
+                "Name": "__OpenWireRootUnit__.CustomCode1.Outputs.Integer2.OutputPin",
+                "ID": "__OpenWireRootUnit__.CustomCode1.Outputs._Item1.OutputPin"
+              }
+            }
+          },
+          "Type": "Component",
+          "Y": 336
+        },
+        {
+          "X": 672,
+          "Name": "MultiplyByValue3",
+          "Instance": {
+            "Value": 62,
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "ID": "__OpenWireRootUnit__.DivideByValue3.InputPin"
+                }
+              ]
+            },
+            "+": "TArduinoIntegerMultiplyByValue",
+            "InputPin": {
+              "SourcePin": {
+                "Name": "__OpenWireRootUnit__.CustomCode1.Outputs.Integer3.OutputPin",
+                "ID": "__OpenWireRootUnit__.CustomCode1.Outputs._Item2.OutputPin"
+              }
+            }
+          },
+          "Type": "Component",
+          "Y": 400
+        },
+        {
+          "X": 672,
+          "Name": "MultiplyByValue4",
+          "Instance": {
+            "Value": 62,
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "ID": "__OpenWireRootUnit__.DivideByValue4.InputPin"
+                }
+              ]
+            },
+            "+": "TArduinoIntegerMultiplyByValue",
+            "InputPin": {
+              "SourcePin": {
+                "Name": "__OpenWireRootUnit__.CustomCode1.Outputs.Integer4.OutputPin",
+                "ID": "__OpenWireRootUnit__.CustomCode1.Outputs._Item3.OutputPin"
+              }
+            }
+          },
+          "Type": "Component",
+          "Y": 464
+        },
+        {
+          "X": 816,
+          "Name": "DivideByValue2",
+          "Instance": {
+            "Value": 1000,
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Packet1.Elements.Integer(Binary)2.InputPin",
+                  "ID": "__OpenWireRootUnit__.Packet1.Elements._Item1.InputPin"
+                }
+              ]
+            },
+            "+": "TArduinoIntegerDivideByValue",
+            "InputPin": {
+              "SourcePin": {
+                "ID": "__OpenWireRootUnit__.MultiplyByValue2.OutputPin"
+              }
+            }
+          },
+          "Type": "Component",
+          "Y": 336
+        },
+        {
+          "X": 816,
+          "Name": "DivideByValue3",
+          "Instance": {
+            "Value": 1000,
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Packet1.Elements.Integer(Binary)3.InputPin",
+                  "ID": "__OpenWireRootUnit__.Packet1.Elements._Item2.InputPin"
+                }
+              ]
+            },
+            "+": "TArduinoIntegerDivideByValue",
+            "InputPin": {
+              "SourcePin": {
+                "ID": "__OpenWireRootUnit__.MultiplyByValue3.OutputPin"
+              }
+            }
+          },
+          "Type": "Component",
+          "Y": 400
+        },
+        {
+          "X": 816,
+          "Name": "DivideByValue4",
+          "Instance": {
+            "Value": 1000,
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "ID": "__OpenWireRootUnit__.Kalman1.InputPin"
+                }
+              ]
+            },
+            "+": "TArduinoIntegerDivideByValue",
+            "InputPin": {
+              "SourcePin": {
+                "ID": "__OpenWireRootUnit__.MultiplyByValue4.OutputPin"
+              }
+            }
+          },
+          "Type": "Component",
+          "Y": 464
+        },
+        {
+          "X": 960,
+          "Name": "Kalman1",
+          "Instance": {
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Packet1.Elements.Analog(Binary)1.InputPin",
+                  "ID": "__OpenWireRootUnit__.Packet1.Elements._Item4.InputPin"
+                }
+              ]
+            },
+            "InputPin": {
+              "SourcePin": {
+                "ID": "__OpenWireRootUnit__.DivideByValue4.OutputPin"
+              }
+            },
+            "+": "TArduinoKalmanAnalog"
+          },
+          "Type": "Component",
+          "Y": 544
+        }
+      ],
+      "Type": "Diagram",
+      "Selection": [
+        "Kalman1"
+      ]
+    }
+  ],
+  "Content": "OpenWire Diagram"
+}
