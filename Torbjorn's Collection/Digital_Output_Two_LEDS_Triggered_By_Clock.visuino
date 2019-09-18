@@ -1,0 +1,186 @@
+{
+  "Version": "2",
+  "Product": "Visuino Pro - Visual Arduino Programming",
+  "Units": [
+    {
+      "Name": "__OpenWireRootUnit__",
+      "*": [
+        {
+          "X": 832,
+          "Name": "Arduino",
+          "Instance": {
+            "AnalogInput": {
+              "*": [
+                {
+                  "+": "TArduinoESP8266AnalogInputChannel"
+                }
+              ]
+            },
+            "Serial": {
+              "*": [
+                {
+                  "+": "TArduinoESP8266HardwareSerial"
+                },
+                {
+                  "+": "TArduinoESP8266HardwareSerial1"
+                }
+              ]
+            },
+            "+": "TArduinoBoard",
+            "AnalogInputReference": "Default",
+            "Modules": {
+              "*": [
+                {
+                  "+": "TArduinoESP8266WiFiModule"
+                },
+                {
+                  "+": "TArduinoEEPROMModule"
+                },
+                {
+                  "+": "TArduinoPWMConfigModule"
+                },
+                {
+                  "+": "TArduinoESP8266ProcessorModule"
+                }
+              ]
+            },
+            "I2CChannels": {
+              "*": [
+                {
+                  "+": "TArduinoESP8266_WeMos_D1_I2C"
+                }
+              ]
+            },
+            "Digital": {
+              "*": [
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMSerial0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMSerial0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMInterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMI2C0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMI2C0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMInterruptChannel"
+                },
+                {
+                  "DigitalInputPin": {
+                    "SourcePin": {
+                      "Name": "__OpenWireRootUnit__.CustomCode2.Outputs.Digital1.OutputPin",
+                      "ID": "__OpenWireRootUnit__.CustomCode2.Outputs._Item0.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoBasicDigitalOpenDrainPWMInterruptChannel"
+                },
+                {
+                  "DigitalInputPin": {
+                    "SourcePin": {
+                      "Name": "__OpenWireRootUnit__.CustomCode2.Outputs.Digital2.OutputPin",
+                      "ID": "__OpenWireRootUnit__.CustomCode2.Outputs._Item1.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoBasicDigitalOpenDrainPWMSPI0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMSPI0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMSerial2SPI0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMSerial2InterruptChannel"
+                }
+              ]
+            },
+            "SPIChannels": {
+              "*": [
+                {
+                  "+": "TArduinoSPI"
+                }
+              ]
+            },
+            "BoardType": "WeMos D1 \/ R2"
+          },
+          "Type": "Component",
+          "Y": 256
+        },
+        {
+          "X": 256,
+          "Name": "ClockGenerator1",
+          "Instance": {
+            "Frequency": 0.200000002980232,
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "ID": "__OpenWireRootUnit__.CustomCode2.ClockInputPin"
+                }
+              ]
+            },
+            "+": "TArduinoClockGenerator"
+          },
+          "Type": "Component",
+          "Y": 448
+        },
+        {
+          "X": 432,
+          "Name": "CustomCode1",
+          "Instance": {
+            "ClockInputPin": {
+              "SourcePins": [
+                {
+                  "ID": "__OpenWireRootUnit__.ClockGenerator1.OutputPin"
+                }
+              ]
+            },
+            "Outputs": {
+              "*": [
+                {
+                  "Name": "Digital1",
+                  "OutputPin": {
+                    "SinkPins": [
+                      {
+                        "Name": "__OpenWireRootUnit__.Arduino.Digital.Digital(TX1)(ESP LED)[ 4 ].DigitalInputPin",
+                        "ID": "__OpenWireRootUnit__.Arduino.Digital._Item6.DigitalInputPin"
+                      }
+                    ]
+                  },
+                  "+": "TArduinoCustomCodeOutputDigitalElement"
+                },
+                {
+                  "Name": "Digital2",
+                  "OutputPin": {
+                    "SinkPins": [
+                      {
+                        "Name": "__OpenWireRootUnit__.Arduino.Digital.Digital(SPI-SCK)(LED)[ 5 ].DigitalInputPin",
+                        "ID": "__OpenWireRootUnit__.Arduino.Digital._Item7.DigitalInputPin"
+                      }
+                    ]
+                  },
+                  "+": "TArduinoCustomCodeOutputDigitalElement"
+                }
+              ]
+            },
+            "+": "TArduinoCustomCode",
+            "OnExecute": "  Digital1.Send(HIGH);   \/\/ turn the LED on (HIGH is the voltage level)\r\n  delay(1000);                       \/\/ wait for a second\r\n  Digital1.Send(LOW);    \/\/ turn the LED off by making the voltage LOW\r\n  delay(1000);\r\n  Digital2.Send(HIGH);   \/\/ turn the LED on (HIGH is the voltage level)\r\n  delay(1000);                       \/\/ wait for a second\r\n  Digital2.Send(LOW);    \/\/ turn the LED off by making the voltage LOW\r\ndelay(1000);\r\n  ",
+            "OnStart": "  pinMode(LED_BUILTIN, OUTPUT);"
+          },
+          "Type": "Component",
+          "Y": 448
+        }
+      ],
+      "Type": "Diagram",
+      "Selection": [
+        "ClockGenerator1"
+      ]
+    }
+  ],
+  "Content": "OpenWire Diagram"
+}
