@@ -1,0 +1,218 @@
+{
+  "Version": "2",
+  "Product": "Visuino Pro - Visual Arduino Programming",
+  "Units": [
+    {
+      "Name": "__OpenWireRootUnit__",
+      "*": [
+        {
+          "X": 848,
+          "Name": "Arduino",
+          "Instance": {
+            "AnalogInput": {
+              "*": [
+                {
+                  "+": "TArduinoESP8266AnalogInputChannel"
+                }
+              ]
+            },
+            "Serial": {
+              "*": [
+                {
+                  "+": "TArduinoESP8266HardwareSerial"
+                },
+                {
+                  "+": "TArduinoESP8266HardwareSerial1"
+                }
+              ]
+            },
+            "+": "TArduinoBoard",
+            "AnalogInputReference": "Default",
+            "Modules": {
+              "*": [
+                {
+                  "+": "TArduinoESP8266WiFiModule"
+                },
+                {
+                  "+": "TArduinoEEPROMModule"
+                },
+                {
+                  "+": "TArduinoPWMConfigModule"
+                },
+                {
+                  "+": "TArduinoESP8266ProcessorModule"
+                }
+              ]
+            },
+            "I2CChannels": {
+              "*": [
+                {
+                  "+": "TArduinoESP8266_WeMos_D1_I2C"
+                }
+              ]
+            },
+            "Digital": {
+              "*": [
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMSerial0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMSerial0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMInterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMI2C0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMI2C0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMInterruptChannel"
+                },
+                {
+                  "DigitalInputPin": {
+                    "SourcePin": {
+                      "Name": "__OpenWireRootUnit__.DigitalMultiSource1.OutputPins.Pin [0]",
+                      "ID": "__OpenWireRootUnit__.DigitalMultiSource1.OutputPins._Pin0"
+                    }
+                  },
+                  "+": "TArduinoBasicDigitalOpenDrainPWMInterruptChannel"
+                },
+                {
+                  "DigitalInputPin": {
+                    "SourcePin": {
+                      "Name": "__OpenWireRootUnit__.DigitalMultiSource1.OutputPins.Pin [1]",
+                      "ID": "__OpenWireRootUnit__.DigitalMultiSource1.OutputPins._Pin1"
+                    }
+                  },
+                  "+": "TArduinoBasicDigitalOpenDrainPWMSPI0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMSPI0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMSerial2SPI0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMSerial2InterruptChannel"
+                }
+              ]
+            },
+            "SPIChannels": {
+              "*": [
+                {
+                  "+": "TArduinoSPI"
+                }
+              ]
+            },
+            "BoardType": "WeMos D1 \/ R2"
+          },
+          "Type": "Component",
+          "Y": 256
+        },
+        {
+          "X": 480,
+          "Name": "CustomCode1",
+          "Instance": {
+            "Members": "bool LED;",
+            "Inputs": {
+              "*": [
+                {
+                  "Name": "Digital1",
+                  "InputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.PulseGenerator1.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoCustomCodeInputDigitalElement",
+                  "OnData": "LED=AValue;"
+                }
+              ]
+            },
+            "Outputs": {
+              "*": [
+                {
+                  "Name": "Digital1",
+                  "OutputPin": {
+                    "SinkPins": [
+                      {
+                        "ID": "__OpenWireRootUnit__.DigitalMultiSource1.InputPin"
+                      }
+                    ]
+                  },
+                  "+": "TArduinoCustomCodeOutputDigitalElement"
+                }
+              ]
+            },
+            "+": "TArduinoCustomCode",
+            "OnExecute": "Digital1.Send(LED);"
+          },
+          "Type": "Component",
+          "Y": 320
+        },
+        {
+          "X": 256,
+          "Name": "PulseGenerator1",
+          "Instance": {
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.CustomCode1.Inputs.Digital1.InputPin",
+                  "ID": "__OpenWireRootUnit__.CustomCode1.Inputs._Item0.InputPin"
+                }
+              ]
+            },
+            "+": "TArduinoPulseGenerator"
+          },
+          "Type": "Component",
+          "Y": 352
+        },
+        {
+          "X": 464,
+          "Name": "DigitalMultiSource1",
+          "Instance": {
+            "OutputPins": {
+              "Form": "__OpenWireRootUnit__",
+              "Pins": [
+                {
+                  "Type": "ptSource",
+                  "SinkPins": [
+                    {
+                      "Name": "__OpenWireRootUnit__.Arduino.Digital.Digital(TX1)(ESP LED)[ 4 ].DigitalInputPin",
+                      "ID": "__OpenWireRootUnit__.Arduino.Digital._Item6.DigitalInputPin"
+                    }
+                  ]
+                },
+                {
+                  "Type": "ptSource",
+                  "SinkPins": [
+                    {
+                      "Name": "__OpenWireRootUnit__.Arduino.Digital.Digital(SPI-SCK)(LED)[ 5 ].DigitalInputPin",
+                      "ID": "__OpenWireRootUnit__.Arduino.Digital._Item7.DigitalInputPin"
+                    }
+                  ]
+                }
+              ]
+            },
+            "InputPin": {
+              "SourcePin": {
+                "Name": "__OpenWireRootUnit__.CustomCode1.Outputs.Digital1.OutputPin",
+                "ID": "__OpenWireRootUnit__.CustomCode1.Outputs._Item0.OutputPin"
+              }
+            },
+            "+": "TArduinoDigitalMultiSource"
+          },
+          "Type": "Component",
+          "Y": 624
+        }
+      ],
+      "Type": "Diagram",
+      "Selection": [
+        "DigitalMultiSource1"
+      ]
+    }
+  ],
+  "Content": "OpenWire Diagram"
+}
