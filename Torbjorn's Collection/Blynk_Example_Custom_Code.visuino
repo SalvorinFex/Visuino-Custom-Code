@@ -1,0 +1,324 @@
+{
+  "Version": "2",
+  "Product": "Visuino Pro - Visual Arduino Programming",
+  "Units": [
+    {
+      "Type": "Diagram",
+      "Name": "__OpenWireRootUnit__",
+      "*": [
+        {
+          "X": 1424,
+          "Name": "Arduino",
+          "Instance": {
+            "AnalogInput": {
+              "*": [
+                {
+                  "+": "TArduinoESP8266AnalogInputChannel"
+                }
+              ]
+            },
+            "Serial": {
+              "*": [
+                {
+                  "InputPin": {
+                    "SourcePins": [
+                      {
+                        "ID": "__OpenWireRootUnit__.ChangeOnly1.OutputPin"
+                      },
+                      {
+                        "Name": "__OpenWireRootUnit__.CustomCode1.Outputs.Analog1.OutputPin",
+                        "ID": "__OpenWireRootUnit__.CustomCode1.Outputs._Item1.OutputPin"
+                      }
+                    ]
+                  },
+                  "+": "TArduinoESP8266HardwareSerial"
+                },
+                {
+                  "+": "TArduinoESP8266HardwareSerial1"
+                }
+              ]
+            },
+            "+": "TArduinoBoard",
+            "AnalogInputReference": "Default",
+            "Modules": {
+              "*": [
+                {
+                  "+": "TArduinoESP8266WiFiModule"
+                },
+                {
+                  "+": "TArduinoEEPROMModule"
+                },
+                {
+                  "+": "TArduinoPWMConfigModule"
+                },
+                {
+                  "+": "TArduinoESP8266ProcessorModule"
+                }
+              ]
+            },
+            "I2CChannels": {
+              "*": [
+                {
+                  "+": "TArduinoESP8266_WeMos_D1_I2C"
+                }
+              ]
+            },
+            "Digital": {
+              "*": [
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMSerial0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMSerial0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalPWMInterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMI2C0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMI2C0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMInterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMInterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMSPI0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMSPI0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMSerial2SPI0InterruptChannel"
+                },
+                {
+                  "+": "TArduinoBasicDigitalOpenDrainPWMSerial2InterruptChannel"
+                }
+              ]
+            },
+            "SPIChannels": {
+              "*": [
+                {
+                  "+": "TArduinoSPI"
+                }
+              ]
+            },
+            "BoardType": "WeMos D1 \/ R2"
+          },
+          "Type": "Component",
+          "Y": 256
+        },
+        {
+          "X": 816,
+          "Name": "CustomCode1",
+          "Instance": {
+            "ClockInputPin": {
+              "SourcePins": [
+                {
+                  "ID": "__OpenWireRootUnit__.ClockGenerator1.OutputPin"
+                }
+              ]
+            },
+            "+": "TArduinoCustomCode",
+            "OnExecute": "Blynk.run();\r\nDigital1.Send(InputDigital1);\r\nAnalog1.Send(InputAnalog1);\r\nOutputAnalog1=(InputAnalog1\/1023);\r\n  \/\/ You can send any value at any time.\r\n  \/\/ Please don't send more that 10 values per second.\r\nBlynk.virtualWrite(V0, InputDigital1);\r\nBlynk.virtualWrite(V1, InputAnalog1);\r\n",
+            "OnStart": "  \/\/ Debug console\r\n  Serial.begin(9600);\r\n  Blynk.begin(auth, ssid, pass);\r\n",
+            "Members": "\r\n\/\/ You should get Auth Token in the Blynk App.\r\n\/\/ Go to the Project Settings (nut icon).\r\n\r\nMitov::String varYourAuthToken;\r\n\r\nchar auth[33]=\"3b1608e2b06545af8724d16ede2XXXX\";\r\n\r\n\/\/ Your WiFi credentials.\r\n\/\/ Set password to \"\" for open networks.\r\nchar ssid[30]=\"MySSID\"; \/\/\"YourSSID\";\r\nchar pass[30]=\"MyPassword\"; \/\/\"YourPassword\";\r\nbool InputDigital1;\r\nint InputAnalog1;\r\nfloat OutputAnalog1;",
+            "Inputs": {
+              "*": [
+                {
+                  "Name": "Your_Auth_Token",
+                  "InputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.TextToChar1.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoCustomCodeInputCharElement",
+                  "OnData": "varYourAuthToken=AValue;"
+                },
+                {
+                  "Name": "Digital1",
+                  "InputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.PulseGenerator1.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoCustomCodeInputDigitalElement",
+                  "OnData": "InputDigital1=AValue;"
+                },
+                {
+                  "Name": "Analog1",
+                  "InputPin": {
+                    "SourcePin": {
+                      "ID": "__OpenWireRootUnit__.RandomAnalogGenerator1.OutputPin"
+                    }
+                  },
+                  "+": "TArduinoCustomCodeInputAnalogElement",
+                  "OnData": "InputAnalog1=AValue*1023;"
+                }
+              ]
+            },
+            "Outputs": {
+              "*": [
+                {
+                  "Name": "Digital1",
+                  "OutputPin": {
+                    "SinkPins": [
+                      {
+                        "ID": "__OpenWireRootUnit__.ChangeOnly1.InputPin"
+                      }
+                    ]
+                  },
+                  "+": "TArduinoCustomCodeOutputDigitalElement"
+                },
+                {
+                  "Name": "Analog1",
+                  "OutputPin": {
+                    "SinkPins": [
+                      {
+                        "Name": "__OpenWireRootUnit__.Arduino.Serial[0].InputPin",
+                        "ID": "__OpenWireRootUnit__.Arduino.Serial._Item0.InputPin"
+                      }
+                    ]
+                  },
+                  "+": "TArduinoCustomCodeOutputAnalogElement"
+                }
+              ]
+            },
+            "Includes": "#define BLYNK_PRINT Serial\r\n#include <ESP8266WiFi.h>\r\n#include <BlynkSimpleEsp8266.h>"
+          },
+          "Type": "Component",
+          "Y": 416
+        },
+        {
+          "X": 256,
+          "Name": "NOT_IN_USE_RIGHT_NOW_Your_Auth_Token",
+          "Instance": {
+            "Value": "3b1608e2b06545af8724d16ede2aXXXX",
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "ID": "__OpenWireRootUnit__.TextToChar1.InputPin"
+                }
+              ]
+            },
+            "+": "TArduinoTextValue"
+          },
+          "Type": "Component",
+          "Y": 448
+        },
+        {
+          "X": 592,
+          "Name": "TextToChar1",
+          "Instance": {
+            "InputPin": {
+              "SourcePin": {
+                "ID": "__OpenWireRootUnit__.Your_Auth_Token.OutputPin"
+              }
+            },
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.CustomCode1.Inputs.Your_Auth_Token.InputPin",
+                  "ID": "__OpenWireRootUnit__.CustomCode1.Inputs._Item0.InputPin"
+                }
+              ]
+            },
+            "+": "TArduinoTextToChar"
+          },
+          "Type": "Component",
+          "Y": 448
+        },
+        {
+          "X": 592,
+          "Name": "PulseGenerator1",
+          "Instance": {
+            "Frequency": 0.200000002980232,
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.CustomCode1.Inputs.Digital1.InputPin",
+                  "ID": "__OpenWireRootUnit__.CustomCode1.Inputs._Item1.InputPin"
+                }
+              ]
+            },
+            "+": "TArduinoPulseGenerator"
+          },
+          "Type": "Component",
+          "Y": 496
+        },
+        {
+          "X": 1104,
+          "Name": "ChangeOnly1",
+          "Instance": {
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.Arduino.Serial[0].InputPin",
+                  "ID": "__OpenWireRootUnit__.Arduino.Serial._Item0.InputPin"
+                }
+              ]
+            },
+            "InputPin": {
+              "SourcePin": {
+                "Name": "__OpenWireRootUnit__.CustomCode1.Outputs.Digital1.OutputPin",
+                "ID": "__OpenWireRootUnit__.CustomCode1.Outputs._Item0.OutputPin"
+              }
+            },
+            "+": "TArduinoDigitalChangeOnly"
+          },
+          "Type": "Component",
+          "Y": 432
+        },
+        {
+          "X": 592,
+          "Name": "ClockGenerator1",
+          "Instance": {
+            "Frequency": 0.300000011920929,
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "ID": "__OpenWireRootUnit__.CustomCode1.ClockInputPin"
+                }
+              ]
+            },
+            "+": "TArduinoClockGenerator"
+          },
+          "Type": "Component",
+          "Y": 592
+        },
+        {
+          "X": 592,
+          "Name": "RandomAnalogGenerator1",
+          "Instance": {
+            "OutputPin": {
+              "SinkPins": [
+                {
+                  "Name": "__OpenWireRootUnit__.CustomCode1.Inputs.Analog1.InputPin",
+                  "ID": "__OpenWireRootUnit__.CustomCode1.Inputs._Item2.InputPin"
+                }
+              ]
+            },
+            "+": "TArduinoRandomAnalogGenerator"
+          },
+          "Type": "Component",
+          "Y": 544
+        },
+        {
+          "X": 704,
+          "Name": "__________README__________",
+          "Instance": {
+            "Text": "This is how it COULD look like when working with Blynk - VirtualPins.\r\nYou should put your Wifi settings and Blynk token within the actual Custom Code component under \"Members\".\r\n\r\nA few notes that I'd like to mention is that analog and digital values doesn't\r\nwork the same way as it usually does in Visuino.\r\n\r\nAnalog values in Arduino IDE often have values like 0-255 or 0-1023 while in\r\nVisuino it mostly have values between 0.000 to 1.000.\r\n\r\nBlynk doesn't like to have \"0.123\" (or similar) values going to some blynk\r\nfunctions. So you should handle them like INT instead of FLOAT.\r\n(Just a heads up)\r\n\r\nThere's lots and lots of things to work with in Blynk and it is way to many\r\nthings for me to make in custom code just for an example so you'll have to dig\r\ndeep into the rabbit hole on this one.",
+            "+": "TArduinoFormattedText"
+          },
+          "Type": "Component",
+          "Y": 304
+        }
+      ]
+    }
+  ],
+  "Content": "OpenWire Diagram"
+}
