@@ -1,4 +1,5 @@
 Custom Code by Jim Ryan AKA Pigeon Kicker
------
 What is here may be used any way you wish, just give credit where credit is due.
------
+
+1- Lobot servo controller software, library, examples, and manuals.
+2- Custom Code - Simple text activated flip flop

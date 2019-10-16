@@ -1,0 +1,1 @@
+Our software is safe, if the security software prompt "dangerous information", it seems that your security software mark our software as virus, please ignore the prompt and continue running software.
