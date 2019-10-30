@@ -1,0 +1,4 @@
+Basic Visuino support sketch for the custom code component
+added 10-30-2019
+
+Simple digital in/out pass thru to show the AValue section of inputs
