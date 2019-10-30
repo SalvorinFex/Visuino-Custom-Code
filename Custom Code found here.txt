@@ -1,0 +1,9 @@
+Custom Code by Jim Ryan AKA Pigeon Kicker
+Updated 10-30-2019
+
+What is here may be used any way you wish, just give credit where credit is due.
+
+1- Lobot servo controller software, library, examples, and manuals.
+2- Custom Code - Simple text activated flip flop
+3- Custom Code 01100101 tutorial - Basic input to output pin uses OnData section
+4- Custom Code 01100110 tutorial - Expanded input to output pin uses OnExecute section
