@@ -1,0 +1,18 @@
+Written by Pigeon Kicker AKA Jim Ryan
+Updated 10-10-2019
+---Custom_Code_Flip_Flop---
+
+This is a simple "Flip Flop" recreation.
+It takes typed user input and matches it to defined compare components.
+
+Current input Selections:
+Help - Display the menu
+Enable - Turn on the output pin
+Disable - Turn it off
+
+There are no variables used, it only uses clocks.
+For each input pin there is the "On Data" area that switches the output pin.
+It then displays it's actions with a text output pin to the serial monitor.
+This also turns the Pin-13 Arduino LED on and off.
+
+Enjoy

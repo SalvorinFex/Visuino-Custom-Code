@@ -1,0 +1,5 @@
+Expanded Visuino support sketch for the custom code component
+added 10-30-2019
+
+Expanded digital in/out pass thru
+Uses the OnExecute code section
